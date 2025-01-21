@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>HTML + CSS</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <label>Select a color: </label>
+    <select id="selectColor">
+      <option value="Red">Red</option>
+      <option value="Yellow">Yellow</option>
+      <option value="Green">Green</option>
+    </select>
+    <p id="selectedColorResult"></p>
+
+    <label>Select a day: </label>
+    <select id="daySelectDropdown">
+      <option value="sunday">sunday</option>
+      <option value="monday">monday</option>
+      <option value="thursday">thursday</option>
+    </select>
+    <p id="dayResult"></p>
+
+    <label>Select a Country: </label>
+    <select id="countySelect">
+      <option value="india">india</option>
+      <option value="russia">russia</option>
+      <option value="usa">usa</option>
+    </select>
+    <p id="countryResult"></p>
+
+    <script>
+      const colorSelect = document.getElementById("selectColor");
+      const selectedColorResult = document.getElementById(
+        "selectedColorResult"
+      );
+
+      colorSelect.addEventListener("change", function () {
+        const selectedColor = colorSelect.value;
+        selectedColorResult.textContent = `You Selected : ${selectedColor}`;
+      });
+
+      const daySelect = document.getElementById("daySelectDropdown");
+      const dayResult = document.getElementById("dayResult");
+
+      daySelect.addEventListener("change", function () {
+        const selectDay = daySelect.value;
+        if (selectDay === "sunday" || selectDay === "saturday") {
+          dayResult.textContent = "it is a weekend";
+        } else {
+          dayResult.textContent = "it is  a week day";
+        }
+      });
+
+      const countrySelect = document.getElementById("colorSelect");
+      const countryResult = document.getElementById("countryResult");
+
+      countrySelect.addEventListener("change", function () {
+        const SelectedCountry = countryResult.value;
+        const capitals = {
+          india: "delhi",
+          russia: "mascow",
+          usa: "washington",
+        };
+        countryResult.textContent = `Capital : ${capitals[SelectedCountry]}`;
+      });
+    </script>
+  </body>
+</html>
